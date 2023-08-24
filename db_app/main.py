@@ -26,6 +26,7 @@ try:
                                 "(id int AUTO_INCREMENT,"
                                 "name varchar(100),"
                                 "password varchar(255),"
+                                "phone_number varchar(25)"
                                 "email varchar(255),"
                                 "PRIMARY KEY (id));")
                 cursor.execute(create_table)
@@ -37,10 +38,11 @@ try:
         with connection.cursor() as cursor:
             names = input('Read name: ')
             passwords = (input('Read password: '))
+            phone = (input('Read phone number: '))
             emails = input('Read email address: ')
 
-            insert_query = "INSERT INTO `users` (name, password, email) VALUES (%s, %s, %s);"
-            cursor.execute(insert_query, (names, passwords, emails))
+            insert_query = "INSERT INTO `users` (name, password, phone_number, email) VALUES (%s, %s, %s, %s);"
+            cursor.execute(insert_query, (names, passwords, phone, emails))
             connection.commit()
             print('Entered values saved')
 
