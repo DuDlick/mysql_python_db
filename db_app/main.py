@@ -26,7 +26,7 @@ try:
                                 "(id int AUTO_INCREMENT,"
                                 "name varchar(100),"
                                 "password varchar(255),"
-                                "phone_number varchar(25)"
+                                "phone_number varchar(25),"
                                 "email varchar(255),"
                                 "PRIMARY KEY (id));")
                 cursor.execute(create_table)
