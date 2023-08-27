@@ -4,10 +4,10 @@ WORKDIR /app/
 
 COPY ./db_app/ /app/
 
-EXPOSE 3306
+EXPOSE 5000
 
 RUN python -m pip install --upgrade pip \
     && pip3 install -r requirements.txt --no-cache-dir \
     && python --version
 
-CMD ["python3", "main.py"]
+CMD ["python", "app.py"]
