@@ -36,23 +36,22 @@ try:
             print('#' * 20)
 
 
-        def add_value():
-            names = input('Read name: ')
-            passwords = input('Read password: ')
-            phone = input('Read phone number: ')
-            emails = input('Read email address: ')
-
-
         with connection.cursor() as cursor:
-            # names = input('Read name: ')
-            # passwords = (input('Read password: '))
-            # phone = (input('Read phone number: '))
-            # emails = input('Read email address: ')
+            def add_value():
+                while True:
+                    names = input('Read name: ')
+                    passwords = input('Read password: ')
+                    phone = input('Read phone number: ')
+                    emails = input('Read email address: ')
 
-            insert_query = "INSERT INTO `users` (name, password, phone_number, email) VALUES (%s, %s, %s, %s);"
-            cursor.execute(insert_query, (names, passwords, phone, emails))
-            connection.commit()
-            print('Entered values saved')
+                    insert_query = "INSERT INTO `users` (name, password, phone_number, email) VALUES (%s, %s, %s, %s);"
+                    cursor.execute(insert_query, (names, passwords, phone, emails))
+                    connection.commit()
+                    finish_text = "*Entered values saved*"
+                    print(f"{finish_text}")
+
+            add_value()
+
 
     finally:
         cursor.close()
